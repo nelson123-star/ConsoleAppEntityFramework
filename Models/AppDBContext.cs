@@ -12,6 +12,7 @@ namespace ConsoleAppEntityFramework.Models
         public DbSet<Log> Logs { get; set; }
         public DbSet<TGUser> TGUsers { get; set; }
 
+
         protected override void OnConfiguring(DbContextOptionsBuilder contextOptionsBuilder)
         {
             contextOptionsBuilder.UseSqlServer(@"server = (LocalDB)\MSSQLLocalDB; database = testdatabase; Trusted_Connection = true");
