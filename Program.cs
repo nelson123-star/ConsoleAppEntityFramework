@@ -5,8 +5,8 @@ namespace ConsoleAppEntityFramework
 {
     class Program
     {
-        #region inputData
-        public void inputData(Customer customer)
+        #region InputData
+        public void InputData(Customer customer)
         {
             Console.Write("Input name: ");
             customer.Name = Console.ReadLine();
@@ -23,7 +23,7 @@ namespace ConsoleAppEntityFramework
                 context.SaveChanges();
             }
         }
-        private void inputData(Payment payment)
+        private void InputData(Payment payment)
         {
             Console.Write("Input ChatID: ");
             payment.ChatID = Console.ReadLine();
@@ -38,7 +38,7 @@ namespace ConsoleAppEntityFramework
                 context.SaveChanges();
             }
         }
-        private void inputData(Product product)
+        private void InputData(Product product)
         {
             Console.Write("Input name: ");
             product.Name = Console.ReadLine();
@@ -55,7 +55,7 @@ namespace ConsoleAppEntityFramework
                 context.SaveChanges();
             }
         }
-        private void inputData(Log log)
+        private void InputData(Log log)
         {
             Console.Write("Input ChatID: ");
             log.ChatID = Console.ReadLine();
@@ -71,8 +71,8 @@ namespace ConsoleAppEntityFramework
         }
         #endregion
 
-        #region removeData
-        private void removeData(Customer customer)
+        #region RemoveData
+        private void RemoveData(Customer customer)
         {
             Console.Write("Input name: ");
             customer.Name = Console.ReadLine();
@@ -89,7 +89,7 @@ namespace ConsoleAppEntityFramework
                 context.SaveChanges();
             }
         }
-        private void removeData(Payment payment)
+        private void RemoveData(Payment payment)
         {
             Console.Write("Input ChatID: ");
             payment.ChatID = Console.ReadLine();
@@ -104,7 +104,7 @@ namespace ConsoleAppEntityFramework
                 context.SaveChanges();
             }
         }
-        private void removeData(Product product)
+        private void RemoveData(Product product)
         {
             Console.Write("Input name: ");
             product.Name = Console.ReadLine();
@@ -121,7 +121,7 @@ namespace ConsoleAppEntityFramework
                 context.SaveChanges();
             }
         }
-        private void removeData(Log log)
+        private void RemoveData(Log log)
         {
             Console.Write("Input ChatID: ");
             log.ChatID = Console.ReadLine();
@@ -160,10 +160,10 @@ namespace ConsoleAppEntityFramework
                         switch (ChooseNumber2)
                         {
                             case "1":
-                                program.inputData(product);
+                                program.InputData(product);
                                 break;
                             case "2":
-                                program.removeData(product);
+                                program.RemoveData(product);
                                 break;
                         }
                         break;
@@ -174,10 +174,10 @@ namespace ConsoleAppEntityFramework
                         switch (ChooseNumber2)
                         {
                             case "1":
-                                program.inputData(customer);
+                                program.InputData(customer);
                                 break;
                             case "2":
-                                program.removeData(customer);
+                                program.RemoveData(customer);
                                 break;
                         }
                         break;
@@ -189,10 +189,10 @@ namespace ConsoleAppEntityFramework
                         switch (ChooseNumber2)
                         {
                             case "1":
-                                program.inputData(log);
+                                program.InputData(log);
                                 break;
                             case "2":
-                                program.removeData(log);
+                                program.RemoveData(log);
                                 break;
                         }
                         break;
@@ -203,10 +203,10 @@ namespace ConsoleAppEntityFramework
                         switch (ChooseNumber2)
                         {
                             case "1":
-                                program.inputData(payment);
+                                program.InputData(payment);
                                 break;
                             case "2":
-                                program.removeData(payment);
+                                program.RemoveData(payment);
                                 break;
                         }
                         break;
