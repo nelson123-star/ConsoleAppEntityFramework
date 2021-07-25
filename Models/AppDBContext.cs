@@ -18,5 +18,9 @@ namespace ConsoleAppEntityFramework.Models
             contextOptionsBuilder.UseSqlServer(@"server = (LocalDB)\MSSQLLocalDB; database = testdatabase; Trusted_Connection = true");
         }
 
+        ~AppDBContext()
+        {
+            Dispose();
+        }
     }   
 }

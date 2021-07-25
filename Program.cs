@@ -5,6 +5,8 @@ namespace ConsoleAppEntityFramework
 {
     class Program
     {
+        AppDBContext context = null;
+
         #region InputData
         public void InputData(Customer customer)
         {
@@ -16,12 +18,10 @@ namespace ConsoleAppEntityFramework
             customer.Balance = Int32.Parse(Console.ReadLine());
             Console.Write("Input email: ");
             customer.Email = Console.ReadLine();
-
-            using (AppDBContext context = new AppDBContext())
-            {
-                context.Customers.Add(customer);
-                context.SaveChanges();
-            }
+            
+            context.Customers.Add(customer);
+            context.SaveChanges();
+            context.Dispose();
         }
         private void InputData(Payment payment)
         {
@@ -31,12 +31,10 @@ namespace ConsoleAppEntityFramework
             payment.Command = Console.ReadLine();
             Console.Write("Input Sum: ");
             payment.Sum = Int32.Parse(Console.ReadLine());
-            
-            using (AppDBContext context = new AppDBContext())
-            {
-                context.Payments.Add(payment);
-                context.SaveChanges();
-            }
+
+            context.Payments.Add(payment);
+            context.SaveChanges();
+            context.Dispose();
         }
         private void InputData(Product product)
         {
@@ -49,11 +47,9 @@ namespace ConsoleAppEntityFramework
             Console.Write("Input Discription: ");
             product.Discription = Console.ReadLine();
 
-            using (AppDBContext context = new AppDBContext())
-            {
-                context.Products.Add(product);
-                context.SaveChanges();
-            }
+            context.Products.Add(product);
+            context.SaveChanges();
+            context.Dispose();
         }
         private void InputData(Log log)
         {
@@ -61,13 +57,11 @@ namespace ConsoleAppEntityFramework
             log.ChatID = Console.ReadLine();
             Console.Write("Input command: ");
             log.Command= Console.ReadLine();
+            
+            context.Logs.Add(log);
+            context.SaveChanges();
+            context.Dispose();
 
-
-            using (AppDBContext context = new AppDBContext())
-            {
-                context.Logs.Add(log);
-                context.SaveChanges();
-            }
         }
         #endregion
 
@@ -83,12 +77,10 @@ namespace ConsoleAppEntityFramework
             Console.Write("Input email: ");
             customer.Email = Console.ReadLine();
 
-            using (AppDBContext context = new AppDBContext())
-            {
-                context.Customers.Remove(customer);
-                context.SaveChanges();
-            }
-        }
+            context.Customers.Remove(customer);
+            context.SaveChanges();
+            context.Dispose();
+        }   
         private void RemoveData(Payment payment)
         {
             Console.Write("Input ChatID: ");
@@ -98,11 +90,9 @@ namespace ConsoleAppEntityFramework
             Console.Write("Input Sum: ");
             payment.Sum = Int32.Parse(Console.ReadLine());
 
-            using (AppDBContext context = new AppDBContext())
-            {
-                context.Payments.Remove(payment);
-                context.SaveChanges();
-            }
+            context.Payments.Remove(payment);
+            context.SaveChanges();
+            context.Dispose();
         }
         private void RemoveData(Product product)
         {
@@ -114,12 +104,10 @@ namespace ConsoleAppEntityFramework
             product.Price = Int32.Parse(Console.ReadLine());
             Console.Write("Input Discription: ");
             product.Discription = Console.ReadLine();
-
-            using (AppDBContext context = new AppDBContext())
-            {
-                context.Products.Remove(product);
-                context.SaveChanges();
-            }
+            
+            context.Products.Remove(product);
+            context.SaveChanges();
+            context.Dispose();
         }
         private void RemoveData(Log log)
         {
@@ -127,18 +115,16 @@ namespace ConsoleAppEntityFramework
             log.ChatID = Console.ReadLine();
             Console.Write("Input command: ");
             log.Command = Console.ReadLine();
-
-
-            using (AppDBContext context = new AppDBContext())
-            {
-                context.Logs.Remove(log);
-                context.SaveChanges();
-            }
+ 
+            context.Logs.Remove(log);
+            context.SaveChanges();
+            context.Dispose();
         }
         #endregion
         static void Main(string[] args)
         {
             Program program = new Program();
+            program.context = new AppDBContext();
             while (true)
             {
                 Console.WriteLine("Введите номер команды");
