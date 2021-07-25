@@ -5,10 +5,14 @@ namespace ConsoleAppEntityFramework
 {
     class Program
     {
-        AppDBContext context = null;
+        static AppDBContext context = null;
 
+        static Program()
+        {
+            context = new AppDBContext();
+        }
         #region InputData
-        public void InputData(Customer customer)
+        public static void InputData(Customer customer)
         {
             Console.Write("Input name: ");
             customer.Name = Console.ReadLine();
@@ -23,7 +27,7 @@ namespace ConsoleAppEntityFramework
             context.SaveChanges();
             context.Dispose();
         }
-        private void InputData(Payment payment)
+        private static void InputData(Payment payment)
         {
             Console.Write("Input ChatID: ");
             payment.ChatID = Console.ReadLine();
@@ -36,7 +40,7 @@ namespace ConsoleAppEntityFramework
             context.SaveChanges();
             context.Dispose();
         }
-        private void InputData(Product product)
+        private static void InputData(Product product)
         {
             Console.Write("Input name: ");
             product.Name = Console.ReadLine();
@@ -51,7 +55,7 @@ namespace ConsoleAppEntityFramework
             context.SaveChanges();
             context.Dispose();
         }
-        private void InputData(Log log)
+        private static void InputData(Log log)
         {
             Console.Write("Input ChatID: ");
             log.ChatID = Console.ReadLine();
@@ -61,12 +65,11 @@ namespace ConsoleAppEntityFramework
             context.Logs.Add(log);
             context.SaveChanges();
             context.Dispose();
-
         }
         #endregion
 
         #region RemoveData
-        private void RemoveData(Customer customer)
+        private static void RemoveData(Customer customer)
         {
             Console.Write("Input name: ");
             customer.Name = Console.ReadLine();
@@ -81,7 +84,7 @@ namespace ConsoleAppEntityFramework
             context.SaveChanges();
             context.Dispose();
         }   
-        private void RemoveData(Payment payment)
+        private static void RemoveData(Payment payment)
         {
             Console.Write("Input ChatID: ");
             payment.ChatID = Console.ReadLine();
@@ -94,7 +97,7 @@ namespace ConsoleAppEntityFramework
             context.SaveChanges();
             context.Dispose();
         }
-        private void RemoveData(Product product)
+        private static void RemoveData(Product product)
         {
             Console.Write("Input name: ");
             product.Name = Console.ReadLine();
@@ -109,7 +112,7 @@ namespace ConsoleAppEntityFramework
             context.SaveChanges();
             context.Dispose();
         }
-        private void RemoveData(Log log)
+        private static void RemoveData(Log log)
         {
             Console.Write("Input ChatID: ");
             log.ChatID = Console.ReadLine();
@@ -123,8 +126,7 @@ namespace ConsoleAppEntityFramework
         #endregion
         static void Main(string[] args)
         {
-            Program program = new Program();
-            program.context = new AppDBContext();
+            
             while (true)
             {
                 Console.WriteLine("Введите номер команды");
@@ -146,10 +148,10 @@ namespace ConsoleAppEntityFramework
                         switch (ChooseNumber2)
                         {
                             case "1":
-                                program.InputData(product);
+                                InputData(product);
                                 break;
                             case "2":
-                                program.RemoveData(product);
+                                RemoveData(product);
                                 break;
                         }
                         break;
@@ -160,10 +162,10 @@ namespace ConsoleAppEntityFramework
                         switch (ChooseNumber2)
                         {
                             case "1":
-                                program.InputData(customer);
+                                InputData(customer);
                                 break;
                             case "2":
-                                program.RemoveData(customer);
+                                RemoveData(customer);
                                 break;
                         }
                         break;
@@ -175,10 +177,10 @@ namespace ConsoleAppEntityFramework
                         switch (ChooseNumber2)
                         {
                             case "1":
-                                program.InputData(log);
+                                InputData(log);
                                 break;
                             case "2":
-                                program.RemoveData(log);
+                                RemoveData(log);
                                 break;
                         }
                         break;
@@ -189,10 +191,10 @@ namespace ConsoleAppEntityFramework
                         switch (ChooseNumber2)
                         {
                             case "1":
-                                program.InputData(payment);
+                                InputData(payment);
                                 break;
                             case "2":
-                                program.RemoveData(payment);
+                                RemoveData(payment);
                                 break;
                         }
                         break;
