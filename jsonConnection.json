@@ -1,5 +1,0 @@
-{
-  "ConnectionStrings": {
-    "AppDBContext": "server=(localdb)/mssqlserverlocaldb;database=testdatabase;Trusted_Connection=true"
-  }
-}
