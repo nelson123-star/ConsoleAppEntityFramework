@@ -1,10 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Data.Common;
+using System.Data.SqlClient;
 
 namespace ConsoleAppEntityFramework.Models
 {
     public class AppDBContext : DbContext
     {
-        public AppDBContext()
+        public AppDBContext() //: base(options)
         { }
         public DbSet<Product> Products { get; set; }
         public DbSet<Customer> Customers { get; set; }
@@ -15,12 +17,8 @@ namespace ConsoleAppEntityFramework.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder contextOptionsBuilder)
         {
+            //contextOptionsBuilder.UseSqlServer("ConnectionStrings:AppDBContext");
             contextOptionsBuilder.UseSqlServer(@"server = (LocalDB)\MSSQLLocalDB; database = testdatabase; Trusted_Connection = true");
         }
-
-        //~AppDBContext()
-        //{
-        //    Dispose();
-        //}
     }   
 }
